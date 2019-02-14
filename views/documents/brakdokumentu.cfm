@@ -23,7 +23,7 @@
 			W systemie nie odnaleziono pliku PDF dla faktury o numerze Intranetowym <cfoutput>#dokument.getDocumentname()#</cfoutput>.<br />
 			<cfif Len( dokument.getSys() )>
 				
-				Aby dodać brakujący plik proszę go pozyskać z serwisu <a href="http://afaktury.pl">afaktury.pl</a> lub skontaktować się z <a href="mailto:Jaroslaw.Deresinski@monkey.xyz">Jarosławem Deresińskim</a>.<br />
+				Aby dodać brakujący plik proszę go pozyskać z serwisu <a href="http://afaktury.pl">afaktury.pl</a> lub skontaktować się z <a href="mailto:testuser@monkey.xyz">Jarosławem Deresińskim</a>.<br />
 				Pozyskany plik winien mieć nazwę <cfoutput>#dokument.getDocument_file_name()#</cfoutput>. Taki plik proszę przesłać na adres <a href="mailto:webmaster@monkey.xyz">webmaster@monkey.xyz</a> lub <a href="mailto:admin@monkey.xyz">admin@monkey.xyz</a>.
 				
 			<cfelse>

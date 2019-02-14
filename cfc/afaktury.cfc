@@ -384,7 +384,7 @@
 						<!---
 							Wysłanie informacji do PPS o imporcie faktury
 						--->
-						<cfmail to="#plikCsv[1][1]#@monkey.xyz" bcc="intranet@monkey.xyz" from="intranet@monkey.xyz,Jaroslaw.Deresinski@monkey.xyz" replyto="intranet@monkey.xyz" type="html" subject="Faktura">
+						<cfmail to="#plikCsv[1][1]#@monkey.xyz" bcc="intranet@monkey.xyz" from="intranet@monkey.xyz,testuser@monkey.xyz" replyto="intranet@monkey.xyz" type="html" subject="Faktura">
 							<cfoutput>
 								Dzien dobry #danePps.nazwaajenta#,<br />
 								Twoja faktura nr #plikCsv[1][3]# na kwote #plikCsv[1][8]# PLN brutto wystawiona w systemie afaktury.pl zostala zaimportowana z dniem dzisiejszym do systemu.<br /><br />
@@ -419,7 +419,7 @@
 					<cfset ftpGetFile(fileName="#nazwaPliku[1]#.csv", path="afaktury_tmp") />
 					<cfset plikCsv = parsowanie.csvToArray(file="/var/www/intranet/afaktury_tmp/#nazwaPliku[1]#.csv",delimiter=",",trim="true") />
 					
-					<cfmail to="admin@monkey.xyz,Jaroslaw.Deresinski@monkey.xyz,webmaster@monkey.xyz" from="INTRANET <intranet@monkey.xyz>" type="html" subject="Blad importu plikow afaktury.pl" priority="highest" >
+					<cfmail to="admin@monkey.xyz,testuser@monkey.xyz,webmaster@monkey.xyz" from="INTRANET <intranet@monkey.xyz>" type="html" subject="Blad importu plikow afaktury.pl" priority="highest" >
 						<cfoutput>
 							<h1>Blad importu plikow afaktury.pl</h1>
 								Wystapil blad podczas importu plikow afaktury.pl<br />

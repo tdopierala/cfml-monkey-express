@@ -61,7 +61,7 @@
 		<cfset QuerySetCell(directors, "id", 16, 1) />
 		<cfset QuerySetCell(directors, "name", "Błażej Komorski", 1) />
 		<cfset QuerySetCell(directors, "id", 1777, 2) />
-		<cfset QuerySetCell(directors, "name", "Adam Rybczonek", 2) />
+		<cfset QuerySetCell(directors, "name", "Test User", 2) />
 		
 		<cfif _root is true>
 			<cfset QueryAddRow(directors, 1) />

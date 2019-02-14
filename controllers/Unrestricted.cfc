@@ -349,16 +349,15 @@
 	
 	<!---
 		Wysyłanie powiadomień o odwołaniach od AOS.
-		Email jest wysyłany do: Honoraty Czarnoty i Adama Czeszaka
 	--->
 	<cffunction name="powiadomienieOOdwolaniachAos" output="false" access="public" hint="Powiadomienia o odwołaniach">
 		<cfset iloscOdwolan = application.cfc.eleader.iloscOdwolan() />
 		<cfset structUzytkownicy = structNew() />
-		<!---<cfset structInsert(structUzytkownicy, "Honorata Czarnota", "admin@monkey.xyz") />
-		<cfset structInsert(structUzytkownicy, "Adam Czeszak", "admin@monkey.xyz") />--->
+		<!---<cfset structInsert(structUzytkownicy, "Test User", "admin@monkey.xyz") />
+		<cfset structInsert(structUzytkownicy, "Test User", "admin@monkey.xyz") />--->
 		
-		<cfset structInsert(structUzytkownicy, "Honorata Czarnota", "honorata.czarnota@monkey.xyz") />
-		<cfset structInsert(structUzytkownicy, "Adam Czeszak", "adam.czeszak@monkey.xyz") />
+		<cfset structInsert(structUzytkownicy, "Test User1", "test.user1@monkey.xyz") />
+		<cfset structInsert(structUzytkownicy, "Test User2", "test.user2@monkey.xyz") />
 	</cffunction>
 	
 	<cffunction name="aktualizujDaneSklepu" outout="false" access="public">
