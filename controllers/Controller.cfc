@@ -7,7 +7,7 @@
 	extends="abstract_component_intranet"
 	output="false">
 
-	<cfset title="Intranet - MAŁPKA S.A. (#get('loc').intranet.directory#)">
+	<cfset title="Monkey (#get('loc').intranet.directory#)">
 	
 	<cfset getUserNotice() />
 

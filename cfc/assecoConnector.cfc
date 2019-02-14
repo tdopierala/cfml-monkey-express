@@ -764,7 +764,7 @@
 		
 		<cfquery name="raport" datasource="#getAssecoConnectorDsn()#">
 			
-			select KODKRES, PD_AUTONR, MG_KARID, SYMKAR, OPIKAR1 from mg_kar
+			select KODKRES, PD_AUTONR, MG_KARID, SYMKAR, OPIKAR1 from [10.99.0.7].[monkeyCafe_SL].dbo.mg_kar
 			
 			where PD_GRUPAAKCYZOWA = 'F'
 			

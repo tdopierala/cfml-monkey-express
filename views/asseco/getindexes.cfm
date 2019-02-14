@@ -1,0 +1,1 @@
+﻿<cfoutput>[<cfloop query="indexes">{"label":"#Trim(opikar)#|#Trim(kodkres)#","value":"#Trim(symkar)#"},</cfloop>{"label":"","value":""}]</cfoutput>

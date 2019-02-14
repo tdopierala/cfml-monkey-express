@@ -8,9 +8,9 @@
 	<!--- PSEUDO-CONSTRUCTOR --->
 	<cfscript>
 		variables = {
-			remoteDsn = "",
-			localDsn = "",
-			intranetDsn = ""
+			remoteDsn = "eleader",
+			localDsn = "eleader_intranet",
+			intranetDsn = "intranet"
 		};
 	</cfscript>
 	
@@ -845,7 +845,7 @@ inner join (select distinct idaktywnosci, email, kodsklepu, imiepartnera, nazwis
 					from daily_wykonaniaaos d
 					where 1=1
 						and d.kodsklepu = a.kodsklepu
-						and d.email like <cfqueryparam value="%@%" cfsqltype="cf_sql_varchar" />
+						and d.email like <cfqueryparam value="%@monkey.xyz" cfsqltype="cf_sql_varchar" />
 						<cfif IsDefined("arguments.interval")>
 							and d.datautworzenia > CURRENT_DATE - INTERVAL '#arguments.interval# months'
 						</cfif>

@@ -3,7 +3,7 @@
 	<cfproperty name="login" type="string" default="faktury_root" />
 	<cfproperty name="password" type="string" default="faktury_root" />
 	<cfproperty name="port" type="numeric" default="21" />
-	<cfproperty name="host" type="string" default="..." />
+	<cfproperty name="host" type="string" default="10.99.40.1" />
 	
 	<cfproperty name="pathIn" type="string" default="in" />
 	<cfproperty name="pathArch" type="string" default="arch" />
@@ -235,7 +235,7 @@
 						select * from contractors where str_logo = <cfqueryparam value="#plikCsv[1][2]#" cfsqltype="cf_sql_varchar" /> order by id desc limit 1;
 					</cfquery>
 					
-					<cfstoredproc dataSource = "#getDsnAbs()#" procedure = "wusr_sp_intranet_get_contractors" returncode = "yes">
+					<cfstoredproc dataSource = "#getDsnAbs()#" procedure = "wusr_sp_intranet_monkey_get_contractors" returncode = "yes">
 						<cfprocparam type = "in" cfsqltype = "CF_SQL_VARCHAR" value = "%" dbVarName = "@search" />
 						<cfprocparam type = "in" cfsqltype = "CF_SQL_VARCHAR" value = "#plikCsv[1][2]#" dbVarName = "@logo" />
 						<cfprocresult name="kontrahentAbs" />
@@ -384,11 +384,12 @@
 						<!---
 							Wysłanie informacji do PPS o imporcie faktury
 						--->
-						<cfmail to="#plikCsv[1][1]#@mexpress.com" bcc="intranet@m.pl" from="intranet@m.pl" replyto="intranet@m.pl" type="html" subject="Faktura">
+						<cfmail to="#plikCsv[1][1]#@monkey.xyz" bcc="intranet@monkey.xyz" from="intranet@monkey.xyz,Jaroslaw.Deresinski@monkey.xyz" replyto="intranet@monkey.xyz" type="html" subject="Faktura">
 							<cfoutput>
 								Dzien dobry #danePps.nazwaajenta#,<br />
 								Twoja faktura nr #plikCsv[1][3]# na kwote #plikCsv[1][8]# PLN brutto wystawiona w systemie afaktury.pl zostala zaimportowana z dniem dzisiejszym do systemu.<br /><br />
 								Pozdrawiamy,<br />
+								Zespol Monkey Group
 							</cfoutput>
 						</cfmail>
 						
@@ -418,7 +419,7 @@
 					<cfset ftpGetFile(fileName="#nazwaPliku[1]#.csv", path="afaktury_tmp") />
 					<cfset plikCsv = parsowanie.csvToArray(file="/var/www/intranet/afaktury_tmp/#nazwaPliku[1]#.csv",delimiter=",",trim="true") />
 					
-					<cfmail to="admin@m.pl" from="INTRANET <intranet@m.pl>" type="html" subject="Blad importu plikow afaktury.pl" priority="highest" >
+					<cfmail to="admin@monkey.xyz,Jaroslaw.Deresinski@monkey.xyz,webmaster@monkey.xyz" from="INTRANET <intranet@monkey.xyz>" type="html" subject="Blad importu plikow afaktury.pl" priority="highest" >
 						<cfoutput>
 							<h1>Blad importu plikow afaktury.pl</h1>
 								Wystapil blad podczas importu plikow afaktury.pl<br />
@@ -508,6 +509,15 @@
 			<cfset var dokumentDAO = createObject("component", "cfc.models.DokumentDAO").init(dsn = getDsn()) />
 			<cfset dokumentDAO.read(dok) />
 			
+			<!---
+			<cfmail to="admin@monkey.xyz" from="INTRANET <intranet@monkey.xyz>" replyto="intranet@monkey.xyz" type="html" subject="Zaczynam usuwac afaktury.pl">
+				<cfoutput>
+					<h1>Zaczalem usuwac afaktury.pl</h1>
+					id: #arguments.dokument#
+				</cfoutput>
+			</cfmail>
+			--->
+			
 			<cfset var nazwaPliku = listToArray(dok.getDocument_file_name(), "/") />
 			<cfset var plik = nazwaPliku[arrayLen(nazwaPliku)] />
 			
@@ -560,11 +570,20 @@
 			
 			</cftransaction>
 			
+			<!---
+			<cfmail to="admin@monkey.xyz" from="INTRANET <intranet@monkey.xyz>" replyto="intranet@monkey.xyz" type="html" subject="Usunieta faktura afaktury.pl">
+				<cfoutput>
+					<h1>Usunalem fakture</h1>
+					id: #arguments.dokument#
+				</cfoutput>
+			</cfmail>
+			--->
+			
 			<cfcatch type="any">
 				<cfset result.success = false />
 				<cfset result.message = "Nie mogę usunąć dokumentu #arguments.dokument#: #cfcatch.message#" />
 
-				<cfmail to="admin@m.pl" from="INTRANET <intranet@m.pl>" replyto="intranet@m.pl" type="html" subject="Błąd usunięcia faktury afaktury.pl">
+				<cfmail to="admin@monkey.xyz" from="INTRANET <intranet@monkey.xyz>" replyto="intranet@monkey.xyz" type="html" subject="Błąd usunięcia faktury afaktury.pl">
 					<cfoutput>
 						<h1>Wystąpił błąd przy usuwaniu afaktury.pl</h1>
 						<cfdump var="#result#" />
@@ -635,9 +654,9 @@
 				<cfset result.success = false />
 				<cfset result.message = "Wystąpił błąd przy oznaczeniu dokumentu #arguments.dokument# do usunięcia" />
 				
-				<cfmail to="admin@m.pl" from="INTRANET <intranet@m.pl>" replyto="intranet@m.pl" type="html" subject="Błąd oznaczenia faktury do usunięcia">
+				<cfmail to="admin@monkey.xyz" from="INTRANET <intranet@monkey.xyz>" replyto="intranet@monkey.xyz" type="html" subject="Błąd oznaczenia faktury do usunięcia afaktury.pl">
 					<cfoutput>
-						<h1>Wystąpił błąd przy oznaczeniu faktury do usunięcia</h1>
+						<h1>Wystąpił błąd przy oznaczeniu faktury do usunięcia afaktury.pl</h1>
 						<cfdump var="#result#" />
 						<cfdump var="#mojDokument#" />
 						<cfdump var="#cfcatch#" />

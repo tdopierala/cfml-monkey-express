@@ -67,7 +67,7 @@
 							<DocumentProperties
 								xmlns="urn:schemas-microsoft-com:office:office">
 								<Author>TD</Author>
-								<Company>MAŁPKA SA</Company>
+								<Company>Monkey Group</Company>
 							</DocumentProperties>
  
 							<!---

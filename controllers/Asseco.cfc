@@ -412,7 +412,7 @@
 						<DocumentProperties
 							xmlns="urn:schemas-microsoft-com:office:office">
 							<Author>TD</Author>
-							<Company>MAŁPKA SA</Company>
+							<Company>Monkey Group</Company>
 						</DocumentProperties>
 						
 						<Styles>
@@ -576,7 +576,7 @@
 		<cfsavecontent variable="xml" >
 			<cfoutput>
 				<?xml version="1.0"?>
-				<Monkey data="#DateFormat(Now(), 'yyyy-mm-dd')# #TimeFormat(Now(), 'HH:mm:ss')#">
+				<monkeygroup data="#DateFormat(Now(), 'yyyy-mm-dd')# #TimeFormat(Now(), 'HH:mm:ss')#">
 				<cfloop query="sklepy">
 					<SklepDef>
 						<Logo>#sklep#</Logo>
@@ -610,7 +610,7 @@
 						</cfloop>
 					</Regaly>
 				</cfloop>
-				</Monkey>
+				</monkeygroup>
 			</cfoutput>
 		</cfsavecontent>
 		
@@ -632,7 +632,7 @@
 		<cfsavecontent variable="xml" >
 			<cfoutput>
 				<?xml version="1.0"?>
-				<Monkey data="#DateFormat(Now(), 'yyyy-mm-dd')# #TimeFormat(Now(), 'HH:mm:ss')#">
+				<monkeygroup data="#DateFormat(Now(), 'yyyy-mm-dd')# #TimeFormat(Now(), 'HH:mm:ss')#">
 					<TypRegalu>
 						<cfloop query="typyRegalow">
 							<TypRegaluDef>
@@ -667,7 +667,7 @@
 							</Regal>
 						</cfloop>
 					</Regaly>
-				</Monkey>
+				</monkeygroup>
 			</cfoutput>
 		</cfsavecontent>
 		

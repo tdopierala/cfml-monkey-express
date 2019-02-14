@@ -1,0 +1,1 @@
+alter table attributes add column footer int(11) default 0;

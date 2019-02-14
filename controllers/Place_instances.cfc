@@ -481,7 +481,7 @@
 							<cfoutput>
 								<html>
 								<head>
-								<title>NIERUCHOMOŚCI - INTRANET - MAŁPKA S.A.</title>
+								<title>NIERUCHOMOŚCI - Monkey</title>
 								<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 								<style type="text/css"> 
 									body { background: transparent url("../images/page.png"); font: normal 12px "Lucida Sans Unicode", sans-serif; color: ##444; }
@@ -498,7 +498,7 @@
 								Na etapie Komitetu pojawiła się nowa nieruchomość.
 								<br /><br />
 								Pozdrawiamy,<br />
-								Zespół Małpka S.A.
+								Monkey Group
 								</body>
 								</html>
 							</cfoutput>	
@@ -628,7 +628,7 @@
 					<cfoutput>
 					<html>
 					<head>
-						<title>NIERUCHOMOŚCI - INTRANET - MAŁPKA S.A.</title>
+						<title>NIERUCHOMOŚCI - Monkey</title>
 						<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 						<style type="text/css"> 
 							body { background: transparent url("../images/page.png"); font: normal 12px "Lucida Sans Unicode", sans-serif; color: ##444; }
@@ -647,7 +647,7 @@
 						Nieruchomość została przywrócona.
 						<br/><br/><br/>	
 						Pozdrawiamy,<br />
-						Zespół Małpka S.A.
+						Monkey Group
 		
 					</body>
 					</html>
@@ -667,7 +667,7 @@
 						<cfoutput>
 						<html>
 						<head>
-							<title>NIERUCHOMOŚCI - INTRANET - MAŁPKA S.A.</title>
+							<title>NIERUCHOMOŚCI - Monkey</title>
 							<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 							<style type="text/css"> 
 								body { background: transparent url("../images/page.png"); font: normal 12px "Lucida Sans Unicode", sans-serif; color: ##444; }
@@ -686,7 +686,7 @@
 							Błąd przy przywracaniu nieruchomości.
 							<br/><br/><br/>	
 							Pozdrawiamy,<br />
-							Zespół Małpka S.A.
+							Monkey Group
 		
 						</body>
 						</html>
@@ -1160,7 +1160,7 @@
 				<cfoutput>
 				<html>
 				<head>
-					<title>NIERUCHOMOŚCI - INTRANET - MAŁPKA S.A.</title>
+					<title>NIERUCHOMOŚCI - Monkey</title>
 					<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 					<style type="text/css"> 
 						body { background: transparent url("../images/page.png"); font: normal 12px "Lucida Sans Unicode", sans-serif; color: ##444; }
@@ -1176,7 +1176,7 @@
 				<body>
 		
 					Witaj,<br />
-					Nieruchomość, w obiegu której bierzesz udział, zmieniła status. Aby dowiedzieć się szczegółów proszę zalogować się na http://intranet.monkey i przejść do zakładki Nieruchomości.
+					Nieruchomość, w obiegu której bierzesz udział, zmieniła status. Aby dowiedzieć się szczegółów proszę zalogować się na http://intranet.monkey.xyz i przejść do zakładki Nieruchomości.
 					<br />
 					<br />
 			
@@ -1200,7 +1200,7 @@
 					<br /><br />
 			
 					Pozdrawiamy,<br />
-					Zespół Małpka S.A.
+					Monkey Group
 		
 				</body>
 				</html>
@@ -1245,7 +1245,7 @@
 					<cfoutput>
 					<html>
 					<head>
-						<title>NIERUCHOMOŚCI - INTRANET - MAŁPKA S.A.</title>
+						<title>NIERUCHOMOŚCI - Monkey</title>
 						<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 						<style type="text/css"> 
 							body { background: transparent url("../images/page.png"); font: normal 12px "Lucida Sans Unicode", sans-serif; color: ##444; }
@@ -1264,7 +1264,7 @@
 						Zmienił się autor nieruchomości.
 						<br/><br/><br/>	
 						Pozdrawiamy,<br />
-						Zespół Małpka S.A.
+						Monkey Group
 		
 					</body>
 					</html>
@@ -1375,7 +1375,7 @@
 				<cfoutput>
 				<html>
 				<head>
-					<title>NIERUCHOMOŚCI - INTRANET - MAŁPKA S.A.</title>
+					<title>NIERUCHOMOŚCI - Monkey</title>
 					<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 					<style type="text/css"> 
 						body { background: transparent url("../images/page.png"); font: normal 12px "Lucida Sans Unicode", sans-serif; color: ##444; }
@@ -1391,7 +1391,7 @@
 				<body>
 		
 					Witaj,<br />
-					Nieruchomość, w obiegu której bierzesz udział, zmieniła status. Aby dowiedzieć się szczegółów proszę zalogować się na http://intranet.monkey i przejść do zakładki Nieruchomości.
+					Nieruchomość, w obiegu której bierzesz udział, zmieniła status. Aby dowiedzieć się szczegółów proszę zalogować się na http://intranet.monkey.xyz i przejść do zakładki Nieruchomości.
 					<br />
 					<br />
 			
@@ -1415,7 +1415,7 @@
 					<br /><br />
 			
 					Pozdrawiamy,<br />
-					Zespół Małpka S.A.
+					Monkey Group
 		
 				</body>
 				</html>

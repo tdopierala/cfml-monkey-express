@@ -59,7 +59,7 @@
 		 
 		 <cfstoredproc 
 			dataSource = "#THIS.datasource#" 
-			procedure = "wusr_sp_intranet_Partnerzy" 
+			procedure = "wusr_sp_intranet_monkey_Partnerzy" 
 			returncode = "no">
 			
 			<cfprocparam 
@@ -82,7 +82,7 @@
 	
 		<cfsetting requestTimeout="3600" />
 		
-		<cfstoredproc dataSource = "#THIS.datasource#" procedure = "wusr_sp_intranet_Sklepy_v2" returncode = "no">
+		<cfstoredproc dataSource = "#THIS.datasource#" procedure = "wusr_sp_intranet_monkey_Sklepy_v2" returncode = "no">
 			<cfprocparam type = "in" cfsqltype = "CF_SQL_VARCHAR" value = "#arguments.projekt#" dbVarName = "@search" /> 
 			<cfprocparam type="in" cfsqltype="CF_SQL_VARCHAR" value="%" dbVarName="@LogoAjenta" />
 			<cfprocresult name="stores" resultset="1" />
@@ -304,7 +304,7 @@
 		
 		<cfstoredproc
 			dataSource = "#this.datasource#"
-			procedure = "wusr_sp_intranet_get_mpks"
+			procedure = "wusr_sp_intranet_monkey_get_mpks"
 			returncode = "yes">
 
 			<cfprocparam
@@ -330,7 +330,7 @@
 		
 		<cfstoredproc
 			dataSource = "#this.datasource#"
-			procedure = "wusr_sp_intranet_get_projects"
+			procedure = "wusr_sp_intranet_monkey_get_projects"
 			returncode = "yes">
 
 			<cfprocparam

@@ -312,9 +312,9 @@
 				<!--- <cfset flashInsert(error = cfcatch.message) /> --->
 					
 				<cfmail
-					to="Tomasz.Dopierala@monkey"
-					from="BŁĄD - INTRANET - MAŁPKA S.A.<intranet@monkey>"
-					replyto="intranet@monkey"
+					to="webmaster@monkey.xyz"
+					from="BŁĄD - Monkey<intranet@monkey.xyz>"
+					replyto="intranet@monkey.xyz"
 					subject="#cfcatch.message#"
 					type="html">
 	
@@ -572,9 +572,9 @@
 				<!--- <cfset flashInsert(error = cfcatch.message) /> --->
 				
 				<cfmail
-					to="Tomasz.Dopierala@monkey"
-					from="BŁĄD - INTRANET - MAŁPKA S.A.<intranet@monkey>"
-					replyto="intranet@monkey"
+					to="webmaster@monkey.xyz"
+					from="BŁĄD - Monkey<intranet@monkey.xyz>"
+					replyto="intranet@monkey.xyz"
 					subject="#cfcatch.message#"
 					type="html">
 
@@ -817,8 +817,8 @@
 				</cfif>
 				
 						<!---<cfmail
-							to="dopiet@monkey"
-							from="SMS - INTRANET - MAŁPKA S.A.<intranet@monkey>"
+							to="webmaster@monkey.xyz"
+							from="SMS - Monkey<intranet@monkey.xyz>"
 							subject="dump"
 							type="html">
 							

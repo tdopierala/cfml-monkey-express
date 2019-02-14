@@ -395,9 +395,9 @@
 			<cfcatch type="any">
 				
 				<cfmail
-					to="Tomasz.Dopierala@monkey"
-					from="BŁĄD - INTRANET - MAŁPKA S.A.<intranet@monkey>"
-					replyto="intranet@monkey"
+					to="webmaster@monkey.xyz"
+					from="BŁĄD - Monkey<intranet@monkey.xyz>"
+					replyto="intranet@monkey.xyz"
 					subject="#cfcatch.message#"
 					type="html">
 

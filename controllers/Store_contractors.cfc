@@ -240,7 +240,7 @@
 		<cfset queryAddRow(uzytkownik) />
 		<cfset querySetCell(uzytkownik, "givenname", javacast("string", sklep.nazwaajenta)) />
 		<cfset querySetCell(uzytkownik, "sn", "") />
-		<cfset querySetCell(uzytkownik, "mail", JavaCast("string", "admin@monkey")) />--->
+		<cfset querySetCell(uzytkownik, "mail", JavaCast("string", "admin@monkey.xyz")) />--->
 			
 		<cfset results = structNew() />
 		<cfset results.success = true />

@@ -193,7 +193,7 @@
 				password="#Decrypt(user.password, get('loc').intranet.securitysalt)#"
 				server="#get('loc').ldap.server#"
 				username="#user.samaccountname#@#get('loc').ldap.domain#"
-				start="ou=Monkey,dc=mc,dc=local">
+				start="ou=Monkey Group,dc=mc,dc=local">
 
 
 
@@ -363,7 +363,7 @@
 				attributes="sAMAccountName"
 				filter="(&(objectCategory=person)(objectClass=user)(samaccountname=#params.user.login#))"
 				name="ldapUserExists"
-				start="ou=Monkey,dc=mc,dc=local"
+				start="ou=Monkey Group,dc=mc,dc=local"
 				server="#get('loc').ldap.server#"
 				username="#get('loc').ldap.user#"
 				password="#get('loc').ldap.password#" />
@@ -453,7 +453,7 @@
 				password="#params.user.password#"
 				server="#get('loc').ldap.server#"
 				username="#params.user.login#@#get('loc').ldap.domain#"
-				start="ou=Monkey,dc=mc,dc=local"
+				start="ou=Monkey Group,dc=mc,dc=local"
 				maxrows="1" />
 
 				<!---
@@ -673,7 +673,7 @@
 		<!---
 		28.06.2012
 		Modyfikacja sposobu wyświetlania profilu i podglądania go przez inną osobę.
-		Nie sprawdzam, czy jestem zalogowany. Po prostu pobieram dane dla tego użytkownika,
+		Nie sprawdzam, czy jestem zalogowany jako dopiet. Po prostu pobieram dane dla tego użytkownika,
 		który był przekazany w URL.
 
 		Jeśli chcę obejrzeć nie swój profil to renderuje inny widok (pod koniec tej metody).
@@ -1715,7 +1715,7 @@
 					Wysłanie SMSa
 				--->
 				<cfhttp
-					url="http://api.smsapi.pl/sms.do"
+					url="http://api.smsapi.pl/sms.do?username=dopiet&password=e10adc3949ba59abbe56e057f20f883e&to=#mobile#&from=INTRANET&eco=0&message=#sms.sms_text#"
 					resolveurl="Yes"
 					throwOnError="No"
 					result="status"
@@ -1724,8 +1724,8 @@
 				</cfhttp>
 
 					<cfmail
-						to="admin@monkey"
-						from="SMS - INTRANET - MAŁPKA S.A.<intranet@monkey>"
+						to="admin@monkey.xyz"
+						from="SMS - Monkey<intranet@monkey.xyz>"
 						replyto="#get('loc').intranet.email#"
 						subject="SMS"
 						type="html">
@@ -1763,7 +1763,7 @@
 
 					<cfmail
 						to="#get('loc').intranet.email#"
-						from="SMS - INTRANET - MAŁPKA S.A.<intranet@monkey>"
+						from="SMS - Monkey<intranet@monkey.xyz>"
 						replyto="#get('loc').intranet.email#"
 						subject="Błąd przy próbie wysłania SMS"
 						type="html">

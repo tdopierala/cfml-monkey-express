@@ -1,0 +1,1 @@
+<iframe src="<cfoutput>#URLFor(controller='Documents',action='document-attachment-form',params='documentid=#documentid#')#</cfoutput>" width="600" height="400" scrolling="no" name="myIframe"></iframe>   

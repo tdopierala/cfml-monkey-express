@@ -112,8 +112,8 @@
 					
 				<cfcatch type="any" >
 					<cfmail
-						to="admin@monkey"
-						from="Archiwizacja WAP - INTRANET - MAŁPKA S.A.<intranet@monkey>"
+						to="admin@monkey.xyz"
+						from="Archiwizacja WAP - Monkey<intranet@monkey.xyz>"
 						replyto="#get('loc').intranet.email#"
 						subject="Archiwizacja WAP"
 						type="html">
@@ -354,11 +354,11 @@
 	<cffunction name="powiadomienieOOdwolaniachAos" output="false" access="public" hint="Powiadomienia o odwołaniach">
 		<cfset iloscOdwolan = application.cfc.eleader.iloscOdwolan() />
 		<cfset structUzytkownicy = structNew() />
-		<!---<cfset structInsert(structUzytkownicy, "Honorata Czarnota", "admin@monkey") />
-		<cfset structInsert(structUzytkownicy, "Adam Czeszak", "admin@monkey") />--->
+		<!---<cfset structInsert(structUzytkownicy, "Honorata Czarnota", "admin@monkey.xyz") />
+		<cfset structInsert(structUzytkownicy, "Adam Czeszak", "admin@monkey.xyz") />--->
 		
-		<cfset structInsert(structUzytkownicy, "Honorata Czarnota", "honorata.czarnota@monkey") />
-		<cfset structInsert(structUzytkownicy, "Adam Czeszak", "adam.czeszak@monkey") />
+		<cfset structInsert(structUzytkownicy, "Honorata Czarnota", "honorata.czarnota@monkey.xyz") />
+		<cfset structInsert(structUzytkownicy, "Adam Czeszak", "adam.czeszak@monkey.xyz") />
 	</cffunction>
 	
 	<cffunction name="aktualizujDaneSklepu" outout="false" access="public">
@@ -571,7 +571,7 @@
 		
 		<cfset var stopTime = getTickCount()-startTime />
 		
-		<cfmail from="intranet@monkey" subject="Import raportów wpłat z FTP" to="admin@monkey" type="html" >
+		<cfmail from="intranet@monkey.xyz" subject="Import raportów wpłat z FTP" to="admin@monkey.xyz" type="html" >
 			<cfoutput>
 				<h2>Import raportów wpłat z FTP</h2>
 				Milisekundy: #stopTime# ms <br/>
@@ -640,7 +640,7 @@
 				
 		<cfset var stopTime = getTickCount()-startTime /> <!--- Kończę liczyć czas --->
 			
-		<cfmail from="intranet@monkey" subject="Import raportu wpłat do bazy danych" to="admin@monkey" type="html" >
+		<cfmail from="intranet@monkey.xyz" subject="Import raportu wpłat do bazy danych" to="admin@monkey.xyz" type="html" >
 			<cfoutput>
 				<h2>Import raportów wpłat do bazy danych</h2>
 				Milisekundy: #stopTime# ms <br/>
@@ -1136,9 +1136,9 @@
 		<cfset stopTime = getTickCount()-startTime /> <!--- Kończę liczyć czas --->
 		
 		<cfmail 
-			to="admin@monkey"
-			from="INTRANET <intranet@monkey>"
-			replyto="intranet@monkey"
+			to="admin@monkey.xyz"
+			from="INTRANET <intranet@monkey.xyz>"
+			replyto="intranet@monkey.xyz"
 			subject="Eksport planogramów do Asseco"
 			type="html"> 
 			
@@ -1295,9 +1295,9 @@
 		<cfset stopTime = getTickCount()-startTime /> <!--- Kończę liczyć czas --->
 		
 		<cfmail 
-			to="admin@monkey,merchandising@monkey"
-			from="INTRANET <intranet@monkey>"
-			replyto="intranet@monkey"
+			to="admin@monkey.xyz,merchandising@monkey.xyz"
+			from="INTRANET <intranet@monkey.xyz>"
+			replyto="intranet@monkey.xyz"
 			subject="Import sklepów z Asseco"
 			type="html"> 
 					
@@ -1323,9 +1323,9 @@
 		<cfset stopTime = getTickCount()-startTime /> <!--- Kończę liczyć czas --->
 		
 		<cfmail 
-			to="admin@monkey"
-			from="INTRANET <intranet@monkey>"
-			replyto="intranet@monkey"
+			to="admin@monkey.xyz"
+			from="INTRANET <intranet@monkey.xyz>"
+			replyto="intranet@monkey.xyz"
 			subject="Budowanie tabel pokrycia sklepów"
 			type="html"> 
 					
@@ -1370,7 +1370,7 @@
 					<!---</cfif>--->
 					
 					<cfcatch type="any">
-						<cfmail to="admin@monkey" from="INTRANET <intranet@monkey>" replyto="intranet@monkey" type="html" subject="Błąd usunięcia faktur afaktury.pl">
+						<cfmail to="admin@monkey.xyz" from="INTRANET <intranet@monkey.xyz>" replyto="intranet@monkey.xyz" type="html" subject="Błąd usunięcia faktur afaktury.pl">
 							<cfoutput>
 								<h1>Wystąpił błąd przy usunięciu afaktury.pl</h1>
 								<cfdump var="#cfcatch#" />
@@ -1385,7 +1385,7 @@
 		</cfthread>
 		
 		
-		<cfmail to="admin@monkey" from="INTRANET <intranet@monkey>" replyto="intranet@monkey" type="html" subject="Raport usunięcie afaktury.pl">
+		<cfmail to="admin@monkey.xyz" from="INTRANET <intranet@monkey.xyz>" replyto="intranet@monkey.xyz" type="html" subject="Raport usunięcie afaktury.pl">
 			<cfoutput>
 				<h1>Raport usunięcia afaktury.pl</h1>
 				<table>
@@ -1631,7 +1631,7 @@
 		</cfloop>
 
 		<cfcatch type="any">
-			<cfmail from="intranet" subject="błąd ksigowania automatycznego" to="admin@monkey" type="html" >
+			<cfmail from="intranet" subject="błąd ksigowania automatycznego" to="admin@monkey.xyz" type="html" >
 				<cfdump var="#cfcatch#" />
 			</cfmail>
 		</cfcatch>
@@ -1685,7 +1685,7 @@
 			
 		</cfsavecontent>
 			
-		<cfmail to="oszmim@monkey" cc="intranet@monkey" from="intranet@monkey" subject="Automatyczne ksiegowanie" type="html">
+		<cfmail to="oszmim@monkey.xyz" cc="intranet@monkey.xyz" from="intranet@monkey.xyz" subject="Automatyczne ksiegowanie" type="html">
 			<cfoutput>
 				<h2>Automatyczne ksigowanie faktur</h2>
 				Milisekundy: #stopTime# <br/>

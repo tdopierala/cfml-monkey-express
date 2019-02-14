@@ -1,0 +1,518 @@
+﻿<cfoutput>
+	<div class="wrapper">
+		<h3>Profil użytkownika <span>#user.givenname# #user.sn#</span></h3>
+	
+		<div class="wrapper">
+		
+			<cfoutput>#includePartial(partial="/users/subnav",cache=0)#</cfoutput>
+					
+		</div>
+	
+		<div class="userProfile">
+			<div class="leftContent">
+				<div id="leftCol">
+					<div id="profilePhoto">
+						<div class="photoContainer">
+							<cfif FileExists(ExpandPath("images/avatars/thumbnail")&"/#user.photo#")>
+								#imageTag(source="avatars/thumbnail/#user.photo#",alt="#user.givenname# #user.sn#",title="#user.givenname# #user.sn#")#
+							<cfelse>
+								#imageTag(source="avatars/monkeyavatar.png",alt="#user.givenname# #user.sn#",title="#user.givenname# #user.sn#")#
+							</cfif>
+							<div class="photoContainerOptionsCover hide">
+								<div class="photoContainerOptions">#linkTo(text="edytuj",controller="Users",action="editPhoto",class="ajaxmodallink",key=params.key)#</div>
+							</div>
+						</div>
+					</div>
+					
+					<div id="profileAttributes">
+						<h5>Użytkownik</h5>
+						<ul>
+							<cfloop query="user_attribute">
+								<li>#attributelabel# <span>#userattributevaluetext#</span></li>
+							</cfloop>
+							<li>Email #mailTo(user.mail)#</li>
+						</ul>
+					</div>
+
+				
+					<div id="profileInformations">
+						<h5>Informacje</h5>
+						<ul>
+							<!--- <li>Data utworzenia konta <br/><span>#dateFormat(user.created_date, "dd-mm-yyyy")#</span></li> --->
+							<li>Data logowania <span>#dateFormat(user.last_login, "dd/mm/yy")#</span></li>
+							<!--- <li>Strukturta 
+								<cfloop query="userorganizations">
+									<span>#organizationunitname#</span>,
+								</cfloop>
+							</li> --->
+						</ul>
+					</div>
+					
+					<!--- Struktura organizacyjna firmy --->
+					<div id="organizationStructure">
+						<!--- #includePartial(partial="organizationstructure")# --->
+					</div>
+					<!--- Struktura organizacyjna firmy --->
+									
+					<!--- 
+					<div id="profileGroups">
+						<h5>Grupy uprawnień użytkownika</h5>
+							<cfloop query="usergroups">
+								#linkTo(
+									text=groupname,
+									controller="Groups",
+									action="view",
+									key=groupid)#,
+							</cfloop>
+					</div>
+					--->
+					<!---
+					<div id="profileFeeds">
+						<h5>Kanały RSS użytkownika</h5>
+						<ul>
+							<cfloop query="user_feeds">
+								<li>
+									#linkTo(
+										text="#feedname# (#allcount#)",
+										controller="Feeds",
+										action="view",
+										key=feeddefinitionid,
+										title=feedname)#
+								</li>
+							</cfloop>
+						</ul>
+					</div>
+					--->
+					<!---
+					<div id="profileActions">
+						<ul>
+							<li>
+
+							</li>
+						</ul>
+					</div>
+					--->
+					
+					<cfif Len(user.redmineapikey) and Len(user.redmineid)>
+						
+					<div id="redmine_projects" class="redmine">
+						<h5>Redmine / projekty</h5>
+						
+						<div class="ajax_loader">
+							#imageTag(source="ajax-loader-3.gif")#
+						</div>
+					
+						<div class="ajax"></div>
+					</div>
+					
+					<div id="redmine_issues" class="redmine">
+						<h5>Redmine / zagadnienia</h5>
+						
+						<div class="ajax_loader">
+							#imageTag(source="ajax-loader-3.gif")#
+						</div>
+						
+						<div class="ajax"></div>
+					</div>
+					
+					<cfelse>
+						
+						<div id="redmine_integration" class="redmine">
+							<h5>Integracja z Redmine</h5>
+							
+							<cfform
+								action="#URLFor(controller='Projects',action='updateUser')#">
+									<ol>
+										<li>
+											<cfinput
+												type="text" 
+												name="redmineapikey"
+												class="input"
+												placeholder="Redmine ApiKey" /> 
+										</li>
+										<li>
+											<cfinput
+												type="text" 
+												name="redmineid"
+												class="input"
+												placeholder="ID Uzytkownika w Redmine" /> 
+										</li>
+										<li>
+											<cfinput
+												type="submit" 
+												name="submituserredmine"
+												class="admin_button green_admin_button"
+												value="Zapisz" /> 
+										</li>
+									</ol>
+							</cfform>
+						</div>
+						
+					</cfif>
+					
+				</div>
+			</div>
+		
+			<div class="rightContent redmine_ajax">
+			
+				<cfif flashKeyExists("error")>
+			    	<span class="error">#flash("error")#</span>
+				</cfif>
+			
+				
+				
+				<!---
+				Lista ostatnich dokumentów w obiegu
+				--->
+				<div class="wrapper" id="usersLatestWorkflows">
+					
+					<!---
+					15.05.2012
+					Sprawdzam, czy jestem zalogowany jako prezes. Jeśli tak to pokazuje inną tabelkę.
+					--->
+					<cfif chairman[1] eq session.userid>
+					
+						<cfif userworkflow.RecordCount eq 0>
+						
+							<div class="chairmanworkflowinfo">
+								Nie masz więcej dokumentów.
+							</div>
+						
+						</cfif>
+						
+						<div class="userworkflowtable">
+							
+							#includePartial(partial="/workflows/chairmanworkflowactions")#
+							
+							<table class="newtables">
+								<thead>
+									<tr class="top">
+										<th class="bottomBorder"></th>
+										<th class="bottomBorder"></th>
+										<th class="bottomBorder"></th>
+										<th class="bottomBorder"></th>
+										<th class="bottomBorder"></th>
+										<th class="bottomBorder"></th>
+									</tr>
+								</thead>
+								<tbody>
+									<cfloop query="userworkflow">
+										<tr>
+											<td class="bottomBorder">
+												#checkBoxTag(name="workflowid",value=workflowid,class="workflowrow",label=false)#
+											</td>
+											<td class="bottomBorder">
+												
+												#linkTo(
+													text=documentname,
+													controller="Workflows",
+													action="step",
+													key=workflowid,
+													title=documentname,
+													class="")#
+												
+											</td>
+											<td class="bottomBorder">#contractorname#</td>
+											<td class="bottomBorder">#workflowstepnote#</td>
+											<td class="bottomBorder">#brutto#</td>
+											<td class="bottomBorder">
+												#linkTo(
+													text="<span>Zamknij obieg tego dokumentu</span>",
+													controller="Workflows",
+													action="closeInvoiceRow",
+													key=workflowid,
+													class="closeInvoiceRow",
+													title="Zamknij obieg tego dokumentu")#
+											</td>
+										</tr> 
+									</cfloop>
+								</tbody>
+							</table>
+						</div>
+						
+					<cfelse> <!--- Jeśli nie jestem zalogowany jako Prezes to pokazuję zwykłą tabelkę --->
+						
+						<!---
+							Renderowanie ramki z fakturami użytkownika
+						--->
+						#includePartial(partial="userworkflow")#
+						<!---
+							Koniec renderowania ramki z fakturami użytkownika
+						--->
+					
+					</cfif> <!--- Koniec sprawdzania jaką tabelkę z dokumentami mam wygenerować --->
+				<!---
+				Koniec listy ostatnich dokumentów w obiegu
+				--->
+				</div>
+				
+				<!---
+				Komunikaty dla użytkowników
+				--->
+				<div id="usersMessages" class="wrapper">
+					#includePartial(partial="usermessages")#
+				</div>
+				<!---
+				Koniec komunikatów dla użytkowników
+				--->
+				
+				<!---
+				Lista wniosków użytkownika.
+				--->
+				<div id="userProposals" class="wrapper">
+				
+					<!--- Jeśli jestem zalogowany jako Prezes to pokazuję listę wniosków do akceptacji --->
+					<cfif chairman[1] eq session.userid>
+					
+						#includePartial(partial="chairmanproposals")#
+					
+					<!--- Jeśli nie jestem zalogowany jako Prezes pokazuję listę moich wniosków --->
+					<cfelse>
+					
+						#includePartial(partial="userproposals")#
+					
+					</cfif>
+				</div>
+				<!---
+				Koniec listy wniosków uzytkownika.
+				--->
+				
+				<div class="clear"></div>
+				
+				<!---
+					Lista instrukcji przypisanych do uzytkownika
+				--->
+					<div id="user_instructions" class="wrapper">
+						#includePartial(partial="instructions")#
+					</div>
+				<!---
+					Koniec listy instrukcji przypisanych do użytkownika.
+				--->
+				
+				<!---
+				Lista nieobecnych
+				--->
+				<div id="userSubstitutions" class="wrapper">
+					#includePartial(partial="substitutions")#
+				</div>
+				<!---
+				Koniec listy nieobecnych
+				--->
+				
+				<!---
+				Lista ostatnio zalogowanych uzytkowników
+				--->
+				<div id="usersLoggedIn" class="wrapper">
+					#includePartial(partial="lastloggedin")#
+				</div> <!-- usersLoggedIn wrapper -->
+				<!---
+				Koniec listy ostatnio zalogowanych użytkowników
+				--->
+				
+				<div class="clear"></div>
+				
+				<!---
+				Aktualności. Lista wpisów dla pracowników firmy.
+				--->
+				
+				<div id="userposts" class="wrapper">
+					#includePartial(partial="posts")#	
+				</div>
+
+				
+				<div class="clear"></div>
+				
+				
+				<cfif checkUserGroup(userid=session.userid,usergroupname="root") or
+						checkUserGroup(userid=session.userid,usergroupname="Raporty") >
+						
+				<div id="place_by_user_report" class="wrapper">
+					<h4>Nieruchomości tygodniami</h4>
+					
+					<div class="ajax_loader">
+						#imageTag(source="ajax-loader-3.gif")#
+					</div>
+			
+					<div class="ajax">
+						
+					</div>
+					
+				</div>
+				
+				<div id="place_by_week_report" class="wrapper">
+					<h4>Nieruchomości użytkownikami</h4>
+					
+					<div class="ajax_loader">
+						#imageTag(source="ajax-loader-3.gif")#
+					</div>
+					
+					<div class="ajax">
+						
+					</div>
+				</div>
+				
+				</cfif>
+				
+				
+				<!---
+				<div id="userCalendars" class="wrapper">
+					<h4>Kalendarze użytkownika</h4>
+				</div><!-- userCalendars wrapper -->
+				--->
+				
+				<!---
+				<div id="userEvents" class="wrapper">
+					<h4>Wydarzenia użytkownika</h4>
+				</div><!-- userEvents wrapper -->
+				--->
+				
+				<!---
+				<div id="userFeeds" class="wrapper">
+					<h4>Najnowsze wiadomości RSS</h4>
+					<ul>
+						<cfloop query="user_last_feed">
+						<li>
+							#linkTo(
+								text=title,
+								href=link)#
+						</li>
+						</cfloop>
+					</ul>					
+				</div><!-- userFeeds wrapper -->
+				--->
+						
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	</div>
+</cfoutput>
+
+<script type="text/javascript">
+$(function() {
+	$('.photoContainer').hover(
+		function(){ $('.photoContainerOptionsCover').removeClass('hide'); },
+		function(){ $('.photoContainerOptionsCover').addClass('hide'); }
+	);
+	
+	$('.deletemessage').live('click', function(e) {
+		e.preventDefault();
+		$('#flashMessages').show();
+		
+		var string = "";
+		
+		$('input[type=checkbox]').each(function(e) {
+			string += (this.checked) ? $(this).attr('value') + ":" : "";
+		});
+		
+		$.ajax({
+    		type		:		'post',
+    		dataType	:		'html',
+    		data		:		{messageid:string},
+    		url			:		<cfoutput>"#URLFor(controller='Messages',action='delete',params='cfdebug')#"</cfoutput>,
+    		success		:		function(data) {
+    			$('.ajaxcontent').html(data);
+    			$('#flashMessages').hide();
+    			
+    		}
+    	});
+
+	});
+	
+	<!---
+		20.11.2012
+		Pobranie raportu nieruchomości
+	--->
+	$.ajax({
+		type		:		'post',
+		dataType	:		'html',
+		url			:		'<cfoutput>#URLFor(controller="Graphs",action="place_by_user")#</cfoutput>',
+		success		:		function(data) {
+			$('#place_by_user_report .ajax').html(data);
+			$('#place_by_user_report .ajax_loader').hide();
+		}
+	});
+	
+	$("#placereportuserid").live('change', function(e) {
+		$('#place_by_user_report .ajax').html("");
+		$('#place_by_user_report .ajax_loader').show();
+		
+		$.ajax({
+			type		:		'post',
+			dataType	:		'html',
+			data		:		{key:$(this).val()},
+			url			:		'<cfoutput>#URLFor(controller="Graphs",action="place_by_user")#</cfoutput>',
+			success		:		function(data) {
+				$('#place_by_user_report .ajax').html(data);
+				$('#place_by_user_report .ajax_loader').hide();
+			}
+		});
+		
+	});
+	
+	$.ajax({
+		type		:		'post',
+		dataType	:		'html',
+		url			:		'<cfoutput>#URLFor(controller="Graphs",action="place_by_week")#</cfoutput>',
+		success		:		function(data) {
+			$('#place_by_week_report .ajax').html(data);
+			$('#place_by_week_report .ajax_loader').hide();
+		}
+	});
+	
+	$("#get_week_report").live('click', function(e) {
+		
+		$('#place_by_week_report .ajax_loader').show();
+		
+		$.ajax({
+			type		:		'post',
+			dataType	:		'html',
+			data		:		{start:$('#startweek').val(),stop:$('#stopweek').val()},
+			url			:		'<cfoutput>#URLFor(controller="Graphs",action="place_by_week")#</cfoutput>',
+			success		:		function(data) {
+				$('#place_by_week_report .ajax').html(data);
+				$('#place_by_week_report .ajax_loader').hide();
+			}
+		});
+	});
+});
+</script>
+
+
+<cfif Len(user.redmineapikey) gt 0 and Len(user.redmineid) gt 0>
+<script>
+$(function() {
+	$.ajax({
+		type			:		"get",
+		dataType		:		"JSONP",
+		url				:		"<cfoutput>#get('loc').redmine.url#/projects.json?key=#user.redmineapikey#&callback=?</cfoutput>",
+		success			:		function(data) {
+			var HTMLresult = "<ul>";
+			$.each(data.projects, function(index, value) {
+				if (value.parent == undefined) {
+					HTMLresult += "<li><a href=\"http://10.99.0.11/redmine/projects/" + value.identifier + "\" target=\"_blank\">" + value.name + "</a></li>";
+				}
+			});
+			HTMLresult += "</ul>";
+			$("#redmine_projects .ajax").html(HTMLresult);
+			$("#redmine_projects .ajax_loader").hide();
+		}
+	});
+	
+	$.ajax({
+		type			:		"get",
+		dataType		:		"JSONP",
+		url				:		"<cfoutput>#get('loc').redmine.url#/issues.json?key=#user.redmineapikey#&assigned_to_id=#user.redmineid#&callback=?</cfoutput>",
+		success			:		function(data) {
+			var HTMLresult = "<table class=\"redmine_table\"><thead><tr><td class=\"first_col\">&nbsp;</td><td class=\"issues\">Zagadnienie</td><td class=\"c progress_ratio\">%</td></tr></thead><tbody>";
+			$.each(data.issues, function(index, value) {
+				HTMLresult += (value.subject.length > 24) ? "<tr><td class=\"first_col\">&nbsp;</td><td><a href=\"http://10.99.0.11/redmine/issues/" + value.id + "\" target=\"_blank\">" + value.subject.substr(0, 24) + "..." + "</a></td><td><span class=\"redmine_progress\"><span class=\"redmine_progress_ratio\" style=\"width:" + value.done_ratio + "%;\">&nbsp;</span></span></td></tr>" : "<tr><td class=\"first_row\">&nbsp;</td><td><a href=\"http://10.99.0.11/redmine/issues/" + value.id + "\" target=\"_blank\">" + value.subject + "</a></td><td><span class=\"redmine_progress\"><span class=\"redmine_progress_ratio\" style=\"width:" + value.done_ratio + "%;\">&nbsp;</span></span></td></tr>"
+			});
+			HTMLresult += "</tbody></table>";
+			$("#redmine_issues .ajax").html(HTMLresult);
+			$("#redmine_issues .ajax_loader").hide();
+		}
+	});
+});
+</script>
+</cfif>

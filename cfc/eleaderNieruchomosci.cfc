@@ -8,9 +8,9 @@
 	<!--- PSEUDO-CONSTRUCTOR --->
 	<cfscript>
 		variables = {
-			localDsn = "",
-			remoteDsn = "",
-			intranetDsn = ""
+			localDsn = "MSIntranet",
+			remoteDsn = "eleader",
+			intranetDsn = "intranet"
 		};
 	</cfscript>
 	

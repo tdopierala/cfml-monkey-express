@@ -7,15 +7,15 @@
 		property type="String" name="messageSubject" default="";
 		property type="String" name="messageBody" default="";
 		property type="Struct" name="to";
-		property type="String" name="from" default="Monkey <admin@monkeyex.pl>";
+		property type="String" name="from" default="INTRANET <intranet@monkey.xyz>";
 		property type="String" name="replyTo" default="";
 		property type="String" name="bcc" default="";
 		
 		variables.instance = {
-			messageSubject = "Powiadomienie",
-			messageBody = "",
+			messageSubject = "Powiadomienie z Intranetu",
+			messageBody = ":)",
 			to = arrayNew(2),
-			from = "Monkey <admin@monkeyex.pl>",
+			from = "INTRANET <intranet@monkey.xyz>",
 			replyTo = "",
 			bcc = ""
 		};

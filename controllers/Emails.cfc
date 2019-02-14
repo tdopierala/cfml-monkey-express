@@ -7,12 +7,12 @@
 	<cffunction name="test" hint="Wysłanie testowej wiadomości mailowej">
 
 		<cfmail
-			to="admin@monkey"
-			cc="intranet@monkey"
-			from="Monkey <intranet@monkey>"
-			replyto="intranet@monkey"
+			to="admin@monkey.xyz"
+			cc="intranet@monkey.xyz"
+			from="Monkey<intranet@monkey.xyz>"
+			replyto="intranet@monkey.xyz"
 			subject="form.subject"
-			<!---server="poczta.monkey"
+			<!---server="poczta.monkey.xyz"
 			username="#get('loc').ldap.user#"
 			password="#get('loc').ldap.password#"--->
 			>
@@ -20,6 +20,16 @@
                 = = = = = = = = = = = = = = = = = = = = = = = = = = =
                 form.body
         </cfmail>
+
+	<!---
+<cfset sendEmail(
+		from="intranet@monkey.xyz",
+		to="admin@monkey.xyz",
+		template="test",
+		subject="Thank You for Becoming a Member",
+		recipientName="pk",
+		startDate=Now())>
+	--->
 
 	</cffunction>
 
@@ -36,6 +46,41 @@
 		<!--- Pobieram informację o użytkowniku i ilości dokumentów mu przypisanych --->
 		<cfset emails = model("workflowToSendMail").getUserWorkflow() />
 		<cfset chairmannextreminder = model("workflowSetting").findOne(where="workflowsettingname='chairmannextreminder'") />
+
+<!--- 		<cfdump var="#emails#"> --->
+<!--- 		<cfabort> --->
+		<!--- Przechodzę przez wszystkich użytkowników i wysyłam informację o dokumentach w obiegu --->
+		<!---
+		TODO 17.04.2012
+		Dorobić funkcjonalność, w której Pan Prezes dostaje powiadomienie raz na 3 dni.
+		--->
+		<!---
+		07.05.2012
+		Zainstalowałem serwer smtp na serwerze CF. Wiadomości są wysyłane tylko na konta Exchange!
+		Zmienił się nagłówek wiadomości z intranetu.
+		--->
+<!--- 		<cfloop query="emails"> --->
+
+<!--- 			<cfif userid neq 38> --->
+
+
+<!---
+<cfset sendEmail(
+				from="admin@monkey.xyz",
+				to="admin@monkey.xyz",
+				template="sendworkflowreminder",
+				subject="Obieg dokumentów",
+				recipientName="#givenname#",
+				workflows=workflows,
+				givenname=givenname,
+				sn=sn,
+				email=email,
+				type="html") />
+--->
+
+<!--- 			</cfif> --->
+
+<!--- 		</cfloop> --->
 
 		<cfset renderWith(data="emails,chairmannextreminder",layout=false) />
 

@@ -2,13 +2,13 @@
 
 	<cfproperty name="api_key" type="string" required="true" />
 	
-	<cfproperty name="tapiKey" type="string" default="e10adc3949ba59abbe56e057f20f883e" />
-	<cfproperty name="tusername" type="string" default="monkey" />
-	<cfproperty name="tpassword" type="string" default="e10adc3949ba59abbe56e057f20f883e" />
+	<cfproperty name="dopietApiKey" type="string" default="e10adc3949ba59abbe56e057f20f883e" />
+	<cfproperty name="dopietUsername" type="string" default="dopiet" />
+	<cfproperty name="dopietPassword" type="string" default="e10adc3949ba59abbe56e057f20f883e" />
 	
-	<cfset this.tapiKey = "e10adc3949ba59abbe56e057f20f883e" />
-	<cfset this.tusername = "monkey" />
-	<cfset this.tpassword = "e10adc3949ba59abbe56e057f20f883e" />
+	<cfset this.dopietApiKey = "e10adc3949ba59abbe56e057f20f883e" />
+	<cfset this.dopietUsername = "dopiet" />
+	<cfset this.dopietPassword = "e10adc3949ba59abbe56e057f20f883e" />
 
 	<cfset THIS.api_key		= "70ad466a26ba6b58c29e7048bc6322d1" />
 	<cfset THIS.username 	= 'dopiet' />
@@ -87,8 +87,8 @@
 						</cfhttp>
 						
 						<cfmail
-							to="intranet@monkey"
-							from="SMS - INTRANET - MAŁPKA S.A.<intranet@monkey>"
+							to="intranet@monkey.xyz"
+							from="SMS - Monkey<intranet@monkey.xyz>"
 							replyto="#get('loc').intranet.email#"
 							subject="SMS #status.Filecontent#"
 							type="html">
@@ -142,8 +142,8 @@
 						</cfhttp>--->
 						
 						<cfmail
-							to="intranet@monkey"
-							from="SMS - INTRANET - MAŁPKA S.A.<intranet@monkey>"
+							to="intranet@monkey.xyz"
+							from="SMS - Monkey<intranet@monkey.xyz>"
 							replyto="#get('loc').intranet.email#"
 							subject="Błędny numer sklepu przy próbie wysłania SMS"
 							type="html">
@@ -165,8 +165,8 @@
 			
 			<cfcatch type="NumberException">
 				<cfmail
-					to="intranet@monkey"
-					from="BŁĄD - INTRANET - MAŁPKA S.A.<intranet@monkey>"
+					to="intranet@monkey.xyz"
+					from="BŁĄD - Monkey<intranet@monkey.xyz>"
 					subject="#cfcatch.message#"
 					type="html">
 					
@@ -182,8 +182,8 @@
 				
 				<cfset response = cfcatch.message />
 				<cfmail
-					to="intranet@monkey"
-					from="BŁĄD - INTRANET - MAŁPKA S.A.<intranet@monkey>"
+					to="intranet@monkey.xyz"
+					from="BŁĄD - Monkey<intranet@monkey.xyz>"
 					subject="#cfcatch.message#"
 					type="html">
 					
@@ -205,7 +205,7 @@
 	
 	<cffunction name="callback" output="false" access="public" hint="Metoda aktualizująca status wysłanej wiadomości SMS">
 <!---		
-		<cfmail from="intranet@monkey" subject="smsapi" to="admin@monkey" type="html">
+		<cfmail from="intranet@monkey.xyz" subject="smsapi" to="admin@monkey.xyz" type="html">
 			<cfdump var="#URL#" />
 			<cfdump var="#params#" />
 		</cfmail>--->
@@ -269,9 +269,9 @@
 				
 				<cfset response = cfcatch.message />
 				<cfmail
-					to="intranet@monkey"
-					from="BŁĄD - INTRANET - MAŁPKA S.A.<intranet@monkey>"
-					replyto="intranet@monkey"
+					to="intranet@monkey.xyz"
+					from="BŁĄD - Monkey<intranet@monkey.xyz>"
+					replyto="intranet@monkey.xyz"
 					subject="#cfcatch.message#"
 					type="html">
 					

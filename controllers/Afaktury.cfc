@@ -81,7 +81,7 @@
 					<cfset result.message = "Nie mogę oznaczyć dokumentu #URL.ID# do usunięcia: #cfcatch.message#" />
 					<cfset session.result = result />
 					
-					<cfmail to="admin@monkey" from="INTRANET <intranet@monkey>" replyto="intranet@monkey" type="html" subject="Błąd usunięcia faktury afaktury.pl">
+					<cfmail to="admin@monkey.xyz" from="INTRANET <intranet@monkey.xyz>" replyto="intranet@monkey.xyz" type="html" subject="Błąd usunięcia faktury afaktury.pl">
 						<cfoutput>
 							<h1>Wystąpił błąd przy oznaczaniu dokumentu do usunięcia afaktury.pl</h1>
 							<cfdump var="#result#" />

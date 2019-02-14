@@ -1,5 +1,5 @@
 <!---  Franchises.cfc --->
-<!--- @@Created By: TD Małpka S.A. 2012 --->
+<!--- @@Created By: TD Monkey Group 2012 --->
 <!---
 Komponent obsługujący Ajentów
 --->

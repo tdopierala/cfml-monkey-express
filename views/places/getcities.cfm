@@ -1,0 +1,1 @@
+<cfoutput>[<cfloop query="cities">{"label":"#cityname#","value":"#cityname#"},</cfloop>{"label":"","value":""}]</cfoutput>

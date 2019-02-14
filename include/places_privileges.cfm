@@ -1,3 +1,7 @@
+		<!---
+				Sprawdzam czy są zdefiniowane uprawnienia do modułu nieruchomości.
+				Jeżeli ich nie ma to zapisuje je w sesji.
+			--->
 
 		<cfif not StructKeyExists(session, "placestepprivileges")>
 			<cfset session.placestepprivileges = model("place_stepprivilege").getUserSteps(userid=session.userid,structure=true) />

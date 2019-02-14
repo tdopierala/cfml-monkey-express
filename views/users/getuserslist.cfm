@@ -1,0 +1,1 @@
+<cfoutput>[<cfloop query="users">{"label":"#givenname# #sn#","value":"#givenname# #sn#"},</cfloop>{"label":"","value":""}]</cfoutput>

@@ -1,0 +1,3 @@
+<cfoutput>
+	#SerializeJSON(projects)#
+</cfoutput>

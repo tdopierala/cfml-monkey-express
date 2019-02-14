@@ -1,0 +1,3 @@
+<cfoutput>
+	#SerializeJSON(mpks)#
+</cfoutput>

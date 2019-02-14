@@ -294,7 +294,7 @@
 				
 					<cfloop query="stores">
 						<cftry>
-							<cfmail to="#projekt#@monkey" from="INTRANET <intranet@monkey>" 
+							<cfmail to="#projekt#@monkey.xyz" from="INTRANET <intranet@monkey.xyz>" 
 									subject="Nowy planogram" type="text/html" charset="utf-8">
 							
 								Witaj #nazwaajenta#,<br />
@@ -304,7 +304,7 @@
 								Uwaga. Plik z planogramem jest również załączony do wiadomości.
 								<br /><br />
 								Pozdrawiamy,<br />
-								Zespół Małpka S.A.
+								Monkey Group
 							
 								<cfloop query="planogramFiles">
 									<cfmailparam file="#ExpandPath('files/planograms/#filesrc#')#">
@@ -313,8 +313,8 @@
 							</cfmail>
 				
 							<cfcatch type="any" >
-								<cfmail to="admin@monkey" 
-									from="INTRANET <intranet@monkey>" 
+								<cfmail to="admin@monkey.xyz" 
+									from="INTRANET <intranet@monkey.xyz>" 
 									subject="Błąd powiadomienia o nowym planogramie"
 									type="text/html"
 									charset="utf-8">
@@ -463,8 +463,8 @@
 			
 				<cfloop query="stores">
 					<cftry>
-						<cfmail to="#projekt#@monkey" 
-							from="INTRANET <intranet@monkey>" 
+						<cfmail to="#projekt#@monkey.xyz" 
+							from="INTRANET <intranet@monkey.xyz>" 
 							subject="Nowy planogram"
 							type="text/html"
 							charset="utf-8">
@@ -476,7 +476,7 @@
 							Uwaga. Plik z planogramem jest również załączony do wiadomości.
 							<br /><br />
 							Pozdrawiamy,<br />
-							Zespół Małpka S.A.
+							Monkey Group
 						
 							<cfloop query="planogramFiles">
 								<cfmailparam file="#ExpandPath('files/planograms/#filesrc#')#">
@@ -485,8 +485,8 @@
 						</cfmail>
 			
 						<cfcatch type="any" >
-							<cfmail to="admin@monkey" 
-								from="INTRANET <intranet@monkey>" 
+							<cfmail to="admin@monkey.xyz" 
+								from="INTRANET <intranet@monkey.xyz>" 
 								subject="Błąd powiadomienia o nowym planogramie"
 								type="text/html"
 								charset="utf-8">

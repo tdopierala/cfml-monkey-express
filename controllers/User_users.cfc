@@ -61,11 +61,11 @@
 			
 			<cfswitch expression="#URL.module#" >
 				<cfcase value="users" >
-					<cflocation url="http://intranet.monkey/helpdesk/index.cfm?event=users.index" addtoken="true" />
+					<cflocation url="http://intranet.monkey.xyz/helpdesk/index.cfm?event=users.index" addtoken="true" />
 				</cfcase>
 				
 				<cfcase value="stores">
-					<cflocation url="http://intranet.monkey/helpdesk/index.cfm?event=stores.index" addtoken="true" />
+					<cflocation url="http://intranet.monkey.xyz/helpdesk/index.cfm?event=stores.index" addtoken="true" />
 				</cfcase>
 			</cfswitch>
 		</cfif>
@@ -101,7 +101,7 @@
 			
 			<cfswitch expression="#URL.module#" >
 				<cfcase value="questionnaires" >
-					<cflocation url="http://intranet.monkey/ankieta" addtoken="true" />
+					<cflocation url="http://intranet.monkey.xyz/ankieta" addtoken="true" />
 				</cfcase>
 			</cfswitch>
 			

@@ -28,7 +28,7 @@ importUsers	-	importuje wszystkich użytkowników z LDAP do intranetu.
 				password="#get('loc').ldap.password#"
 				server="#get('loc').ldap.server#"
 				username="#get('loc').ldap.user#@#get('loc').ldap.domain#"
-				start="ou=Monkey,dc=mc,dc=local">
+				start="ou=Monkey Group,dc=mc,dc=local">
 				
 			
 			<!--- Przechodzę przez wszystkich użytkowników z LDAP --->

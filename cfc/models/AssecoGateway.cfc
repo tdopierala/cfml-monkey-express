@@ -9,7 +9,7 @@
 		<cfargument name="text" type="string" default="" required="true" />
 		
 		<cfset var kontrahenci = "" />
-		<cfstoredproc dataSource="#variables.dsn#" procedure="wusr_sp_intranet_get_contractors" returncode="yes">
+		<cfstoredproc dataSource="#variables.dsn#" procedure="wusr_sp_intranet_monkey_get_contractors" returncode="yes">
 			<cfprocparam type="in" cfsqltype="cf_sql_varchar" value="%" dbVarName = "@search" />
 			<cfprocparam type="in" cfsqltype="cf_sql_varchar" value="#arguments.text#" dbVarName = "@logo" />
 			<cfprocresult name="kontrahenci" resultset="1" />

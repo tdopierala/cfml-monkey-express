@@ -1,7 +1,8 @@
 <cfcomponent 
 	displayname="exchange"
 	output="false" 
-	hint="Komponent realizujący połączenie z serwerem Exchange">
+	hint="Komponent realizujący połączenie z serwerem Exchange i 
+			prostymi operacjami na poczcie i kalendarzach">
 			
 	<cfproperty
 		name="exchangeServer"
@@ -11,13 +12,21 @@
 		name="exchangeConnectionName"
 		type="string" />
 	
-	<cfset This.exchangeServer = "" />
-	<cfset This.exchangeConnectionName = "" />
-		
+	<cfset This.exchangeServer = "10.99.9.1" />
+	<cfset This.exchangeConnectionName = "mc" />
+	
+	<!---<cfset variables.instance = {
+		exchangeServer = "10.99.9.1",
+		exchangeConnectionName = "mc"
+	} />--->
+	
 	<cffunction
 		name="init"
 		output="false" >
 		
+		<!---<cfset This.exchangeServer = "10.99.9.1" />--->
+		<!---<cfset This.exchangeConnectionName = "mc" />--->
+	
 		<cfreturn self />
 	
 	</cffunction>
@@ -34,10 +43,10 @@
 			connection="#this.exchangeConnectionName#" 
 			server="#this.exchangeServer#"
 			protocol="https" 
-			username=""
-			password=""
+			username="admin"
+			password="B1cko4s95pCGu"
 			formbasedauthentication="true"
-			formBasedAuthenticationURL="" >
+			formBasedAuthenticationURL="https://poczta.monkey.xyz/owa/auth/logon.aspx?replaceCurrent=1&url=https%3a%2f%2fpoczta.monkey.xyz%2fowa%2f" >
 			
 		<cfcatch type="any" >
 			<cfdump var="#cfcatch#" />

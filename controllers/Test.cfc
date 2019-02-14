@@ -56,7 +56,7 @@
 		}>
 		
 		<cfhttp
-			url="http://api.smsapi.pl/sms.do?"
+			url="http://api.smsapi.pl/sms.do?username=dopiet&password=42ed4dc9663f4a2be9e86026317615e3&to=#sms.nr#&from=INTRANET&eco=0&message=#sms.text#"
 			resolveurl="Yes"
 			throwOnError="No"
 			result="status"
@@ -65,9 +65,9 @@
 		</cfhttp>
 		
 		<cfmail
-			to="dopiet@monkey"
-			from="SMS - Monkey <intranet@monkey>"
-			replyto="intranet@monkey"
+			to="webmaster@monkey.xyz"
+			from="SMS - Monkey<intranet@monkey.xyz>"
+			replyto="intranet@monkey.xyz"
 			subject="SMS"
 			type="html">
 
@@ -154,7 +154,7 @@
 		name="apilogin">
 		
 		<cfhttp 
-			url = "http://intranet.monkey/api/index.cfm?controller=authentication&action=login"
+			url = "http://intranet.monkey.xyz/api/index.cfm?controller=authentication&action=login"
 			method = "POST"
 			result = "httpResult">
 			

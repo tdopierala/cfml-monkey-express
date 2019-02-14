@@ -92,7 +92,7 @@
 					</cfif>
 					
 					<cfcatch type="any">
-						<cfmail from="intranet.monkey" subject="smsapi" to="admin@monkey" type="html" >
+						<cfmail from="intranet.monkey.xyz" subject="smsapi" to="admin@monkey.xyz" type="html" >
 							<cfdump var="#cfcatch#" />
 							<cfdump var="#response#" />
 						</cfmail>

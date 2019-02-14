@@ -294,8 +294,8 @@
 								
 								<cfcatch type="any" >
 									<cfmail
-										to="admin@monkey"
-										from="Archiwizacja WAP - INTRANET - MAŁPKA S.A.<intranet@monkey>"
+										to="admin@monkey.xyz"
+										from="Archiwizacja WAP - Monkey<intranet@monkey.xyz>"
 										replyto="#get('loc').intranet.email#"
 										subject="Archiwizacja WAP"
 										type="html">
@@ -513,8 +513,8 @@
 					
 					<cfcatch type="any" >
 						<cfmail
-							to="admin@monkey"
-							from="Archiwizacja WAP - INTRANET - MAŁPKA S.A.<intranet@monkey>"
+							to="admin@monkey.xyz"
+							from="Archiwizacja WAP - Monkey<intranet@monkey.xyz>"
 							replyto="#get('loc').intranet.email#"
 							subject="Archiwizacja WAP"
 							type="html">
@@ -798,7 +798,7 @@
 					
 					<div style="position:absolute;bottom:0;left:0;width:100%;background-color:##EB0F0F;color:##ffffff;padding:20px 0 20px;text-align:center;">
 						
-						MAŁPKA SPÓŁKA AKCYJNA<br />
+						Monkey Group<br />
 						ul. Wojskowa 6, 60-792 Poznań<br />
 						NIP: 673 176 67 19 | REGON: 331444670<br />
 						Zarejestrowana w Sądzie Rejonowym Poznań Nowe Miasto i Wilda<br />
@@ -946,7 +946,7 @@
 						
 						<div style="position:absolute;bottom:0;left:0;width:100%;background-color:##EB0F0F;color:##ffffff;padding:20px 0 20px;text-align:center;">
 							
-							MAŁPKA SPÓŁKA AKCYJNA<br />
+							Monkey Group<br />
 							ul. Wojskowa 6, 60-792 Poznań<br />
 							NIP: 673 176 67 19 | REGON: 331444670<br />
 							Zarejestrowana w Sądzie Rejonowym Poznań Nowe Miasto i Wilda<br />

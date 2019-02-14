@@ -272,7 +272,7 @@
 			
 			<cfelse>
 				
-				<cflocation url="http://intranet.monkey" addToken="no" statuscode="301" />
+				<cflocation url="http://intranet.monkey.xyz" addToken="no" statuscode="301" />
 					
 			</cfif>
 			
@@ -281,7 +281,7 @@
 		<cfelse>
 			
 			<!---<cfset renderPage(template="/autherror") />--->
-			<cflocation url="http://intranet.monkey" addToken="no" statuscode="301" />
+			<cflocation url="http://intranet.monkey.xyz" addToken="no" statuscode="301" />
 		
 		</cfif>
 		
